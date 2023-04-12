@@ -1,50 +1,45 @@
 # linkageR
 
-<!-- badges: start -->
-
-<!-- badges: end -->
-
-The goal of linkageR is to Potential regulatory sites of genes were identified by calculating the correlation coefficients between samples for ATAC SEQ and RNA SEQ data.
-
 linkageR通过计算ATAC-seq和RNA-seq数据在样本之间的相关系数，识别基因潜在调控位点
 
 ## Installation
 
-You can install linkageR like so:
-
 安装linkageR：
 
 ``` r
-# Load the devtools package, if not present, install it
+# 加载devtools包，如果没有则安装。
 if(!require("devtools"))install.packages("devtools")
-# install linkageR
+# 安装linkageR
 devtools::install_github("LiCanhui-Huyi/linkageR")
 ```
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
-
 ``` r
 library(linkageR)
-## 将四个文件名存入变量
+# 将四个文件名存入变量
 rna <- "/your/path/TCGA-BRCA.htseq_fpkm-uq.tsv"
 atac <- "/your/path/brca_brca_peak_Log2Counts_dedup.brca_brca_peak_log2counts_dedup"
 peakmap <- "/your/path/brca_brca_peak.probeMap"
 genemap <- "/your/path/gencode.v22.annotation.gene.probeMap"
 
-##调用append_extra_info函数，整合数据，会生成两个全局数据库：RNA、ATAC
+#调用append_extra_info函数，整合数据，会生成两个全局数据框：RNA、ATAC
 append_extra_info(rna,atac,peakmap,genemap)
 
-##可视化peak重叠注释
+#可视化peak重叠注释
 peak_anno(peakmap)
-```
 
-![](images/peak%E6%B3%A8%E9%87%8A.png)
+#核心函数，输入感兴趣的基因集，得到与基因具有相关性的peak，会生成一个全局数据框loc_cor,
+#改数据框包含：基因名，peak的染色体位置，基因和peak在RNA和ATAC矩阵的索引，以及相关性系数和p值
+linkage(RNA,ATAC,geneset = RNA$gene[1:2],rho=0.3,p=0.1)
+
+#最后可以选择loc_cor的任意一行，画出基因和peak表达量的相关性散点图。
+plot_gene_peak_correlation(loc_cor[1,],RNA,ATAC)
+```
 
 ## Data file
 
-You can access the following website link to obtain sample files:
+可以从以下链接下载四个示例文件:
 
 ATAC-seq - All peak signal:
 
