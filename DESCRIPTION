@@ -1,0 +1,24 @@
+Package: linkageR
+Type: Package
+Title: ATAC-seq and RNA-seq based identification of regulatory loci of genes
+Version: 0.1.0
+Author: person("Canhui", "Li", "cre", "li.canhui@qq.com")
+Maintainer:Canhui Li <li.canhui@qq.com>
+Description: This R package identifies potential regulatory sites of genes by 
+    calculating the correlation coefficients between ATAC seq and RNA seq data 
+    samples, and visualizes them to a certain extent.
+License: GPL (>= 3)
+Encoding: UTF-8
+LazyData: true
+LazyDataCompression: xz
+RoxygenNote: 7.2.3
+Imports: 
+    biomaRt,
+    ChIPseeker,
+    data.table,
+    ggplot2,
+    magrittr,
+    stringr,
+    TxDb.Hsapiens.UCSC.hg38.knownGene
+Depends: 
+    R (>= 2.10)
