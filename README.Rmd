@@ -19,14 +19,21 @@ knitr::opts_chunk$set(
 
 <!-- badges: end -->
 
-The goal of linkageR is to ...
+The goal of linkageR is to Potential regulatory sites of genes were identified by calculating the correlation coefficients between samples for ATAC SEQ and RNA SEQ data.
+
+linkageR通过计算ATAC-seq和RNA-seq数据在样本之间的相关系数，识别基因潜在调控位点
 
 ## Installation
 
-You can install the development version of linkageR like so:
+安装linkageR
+
+You can install linkageR like so:
 
 ``` r
-# FILL THIS IN! HOW CAN PEOPLE INSTALL YOUR DEV PACKAGE?
+# Load the devtools package, if not present, install it
+if(!require("devtools"))install.packages("devtools")
+# install linkageR
+devtools::install_github("LiCanhui-Huyi/linkageR")
 ```
 
 ## Example
