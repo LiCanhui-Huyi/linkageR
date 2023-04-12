@@ -5,10 +5,10 @@
 \title{annotation peak
 Annotate peak and visualize}
 \usage{
-peak_anno(atacmap)
+peak_anno(peakmap)
 }
 \arguments{
-\item{atacmap}{peak map file}
+\item{peakmap}{peak map file}
 }
 \value{
 Annotate peak and visualize
@@ -18,6 +18,6 @@ annotation peak
 Annotate peak and visualize
 }
 \examples{
-\dontrun{peak_anno(atacmap)}
+\dontrun{peak_anno(peakmap)}
 
 }

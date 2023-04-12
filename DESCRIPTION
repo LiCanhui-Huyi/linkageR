@@ -1,7 +1,7 @@
 Package: linkageR
 Type: Package
 Title: ATAC-seq and RNA-seq based identification of regulatory loci of genes
-Version: 0.1.0
+Version: 0.1.1
 Author: person("Canhui", "Li", "cre", "li.canhui@qq.com")
 Maintainer:Canhui Li <li.canhui@qq.com>
 Description: This R package identifies potential regulatory sites of genes by 

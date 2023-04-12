@@ -1,7 +1,7 @@
 #' annotation peak
 #' Annotate peak and visualize
 #'
-#' @param atacmap peak map file
+#' @param peakmap peak map file
 #'
 #' @return Annotate peak and visualize
 #' @export
@@ -9,11 +9,12 @@
 #' @import TxDb.Hsapiens.UCSC.hg38.knownGene
 #' @importFrom utils write.table
 #' @examples
-#' \dontrun{peak_anno(atacmap)}
+#' \dontrun{peak_anno(peakmap)}
 #'
-peak_anno <- function(atacmap){
-  atacmapbed <- atacmap[,3:6] #map文件3到6列包含bed文件的内容
-  write.table(atacmapbed,file = "atac.bed",sep = "\t",quote = FALSE,row.names = FALSE,col.names = FALSE)
+peak_anno <- function(peakmap){
+  peakmap <- data.table::fread(peakmap,sep = "\t")
+  peakmapbed <- peakmap[,3:6] #map文件3到6列包含bed文件的内容
+  write.table(peakmapbed,file = "atac.bed",sep = "\t",quote = FALSE,row.names = FALSE,col.names = FALSE)
 
   #所需人类基因注释
   txdb  <-  TxDb.Hsapiens.UCSC.hg38.knownGene::TxDb.Hsapiens.UCSC.hg38.knownGene

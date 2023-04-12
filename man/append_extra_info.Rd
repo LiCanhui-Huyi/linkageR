@@ -4,7 +4,7 @@
 \alias{append_extra_info}
 \title{append_extra_info}
 \usage{
-append_extra_info(fileOfRNA, fileOfATAC, fileOfpeakMap)
+append_extra_info(fileOfRNA, fileOfATAC, fileOfpeakMap, fileOfgeneMap)
 }
 \arguments{
 \item{fileOfRNA}{RNA sequencing data file}
@@ -12,6 +12,8 @@ append_extra_info(fileOfRNA, fileOfATAC, fileOfpeakMap)
 \item{fileOfATAC}{ATAC sequencing data file}
 
 \item{fileOfpeakMap}{peak map file}
+
+\item{fileOfgeneMap}{gene map file}
 }
 \value{
 Two dataframes, one for RNA data and one for ATAC data

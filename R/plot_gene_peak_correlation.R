@@ -13,11 +13,10 @@
 #' \dontrun{plot_gene_peak_correlation(loc_cor[1,],RNA,ATAC)}
 #'
 plot_gene_peak_correlation<- function(loc_cor,RNA,ATAC){
-  # merged_data <- rbind(RNA[location_pair[1,1],6:ncol(RNA)], ATAC[location_pair[1,2],4:ncol(ATAC)])
-  # return(merged_data)
 
-  gene_expr <- RNA[loc_cor[1,5],6:ncol(RNA)] %>% as.numeric()
-  peak_data <- ATAC[loc_cor[1,6],4:ncol(ATAC)] %>% as.numeric()
+
+  gene_expr <- RNA[as.numeric(loc_cor[1,5]) ,6:ncol(RNA)] %>% as.numeric()
+  peak_data <- ATAC[as.numeric(loc_cor[1,6]),4:ncol(ATAC)] %>% as.numeric()
 
 
   p <- ggplot2::ggplot(data.frame(gene_expr, peak_data), ggplot2::aes(x = gene_expr, y = peak_data)) +
