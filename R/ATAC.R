@@ -10,9 +10,9 @@
 #' advancing breast cancer research and improving clinical treatment strategies.
 #'
 #' @docType data
-#' @name ATAC
+#' @name testATAC
 #' @source \url{https://xenabrowser.net/datapages/}
 #'
 #' @keywords datasets
 
-"ATAC"
+"testATAC"

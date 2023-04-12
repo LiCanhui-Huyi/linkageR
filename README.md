@@ -33,6 +33,8 @@ peak_anno(peakmap)
 #改数据框包含：基因名，peak的染色体位置，基因和peak在RNA和ATAC矩阵的索引，以及相关性系数和p值
 linkage(RNA,ATAC,geneset = RNA$gene[1:2],rho=0.3,p=0.1)
 
+
+
 #最后可以选择loc_cor的任意一行，画出基因和peak表达量的相关性散点图。
 plot_gene_peak_correlation(loc_cor[1,],RNA,ATAC)
 ```

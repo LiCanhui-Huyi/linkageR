@@ -10,9 +10,9 @@
 #' and reliable data sources for relevant research in medical and life sciences.
 #'
 #' @docType data
-#' @name RNA
+#' @name testRNA
 #' @source \url{https://xenabrowser.net/datapages/}
 #'
 #' @keywords datasets
 
-"RNA"
+"testRNA"
