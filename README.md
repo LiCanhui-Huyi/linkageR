@@ -2,6 +2,10 @@
 
 linkageR通过计算ATAC-seq和RNA-seq数据在样本之间的相关系数，识别基因潜在调控位点
 
+## R Version
+
+R-4.1.3
+
 ## Installation
 
 安装linkageR：
@@ -40,6 +44,8 @@ linkage(testRNA,testATAC,geneset = testRNA$gene[1:2],rho=0.3,p=0.1)
 #最后可以选择loc_cor的任意一行，画出基因和peak表达量的相关性散点图。
 plot_gene_peak_correlation(loc_cor[1,],RNA,ATAC)
 ```
+
+
 
 ## Data file
 

@@ -5,3 +5,5 @@
 atac.bed
 .inst
 images
+.gitignore
+README.html
