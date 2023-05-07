@@ -24,28 +24,26 @@ library(linkageR)
 # 将四个文件名存入变量
 rna <- "/your/path/TCGA-BRCA.htseq_fpkm-uq.tsv"
 atac <- "/your/path/brca_brca_peak_Log2Counts_dedup.brca_brca_peak_log2counts_dedup"
-peakmap <- "/your/path/brca_brca_peak.probeMap"
 genemap <- "/your/path/gencode.v22.annotation.gene.probeMap"
+peakmap <- "/your/path/brca_brca_peak.probeMap"
 
 #调用append_extra_info函数，整合数据，会生成两个全局数据框：RNA、ATAC
-append_extra_info(rna,atac,peakmap,genemap)
+append_extra_info(rna,atac,genemap,peakmap)
 
 #可视化peak重叠注释
 peak_anno(peakmap)
 
 #核心函数，输入感兴趣的基因集，得到与基因具有相关性的peak，会生成一个全局数据框loc_cor,
 #改数据框包含：基因名，peak的染色体位置，基因和peak在RNA和ATAC矩阵的索引，以及相关性系数和p值
-linkage(RNA,ATAC,geneset = RNA$gene[1:2],rho=0.3,p=0.1)
+linkage(RNA,ATAC,geneset = RNA$gene[1:2],rho=0.3,p=0.01)
 
 #如果你没有下载示例数据，可以通过包自带的测试数据testRNA、tsetATAC运行linkage
-linkage(testRNA,testATAC,geneset = testRNA$gene[1:2],rho=0.3,p=0.1)
+linkage(testRNA,testATAC,geneset = testRNA$gene[1:2],rho=0.3,p=0.01)
 
 
 #最后可以选择loc_cor的任意一行，画出基因和peak表达量的相关性散点图。
 plot_gene_peak_correlation(loc_cor[1,],RNA,ATAC)
 ```
-
-
 
 ## Data file
 

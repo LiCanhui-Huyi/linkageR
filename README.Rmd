@@ -49,7 +49,7 @@ ATAC-seq - All peak signal:
 
 <https://tcgaatacseq.s3.us-east-1.amazonaws.com/download/brca%2Fbrca_peak_Log2Counts_dedup>
 
-peak map: 
+peak map:
 
 <https://tcgaatacseq.s3.us-east-1.amazonaws.com/download/brca%2Fbrca_peak.probeMap>
 
@@ -60,5 +60,3 @@ gene expression RNAseq - HTSeq - FPKM-UQ:
 gene map:
 
 <https://gdc-hub.s3.us-east-1.amazonaws.com/download/gencode.v22.annotation.gene.probeMap>
-
-

@@ -17,7 +17,7 @@
 #' @examples
 #' \dontrun{linkage(RNA,ATAC,RNA$hgnc_symbol[1:10])}
 #'
-linkage <- function(dataOfRNA,dataOfATAC,geneset,rho=0.3,p=0.1){  #该函数目前遇到基因集全部来自同一染色体时会报错
+linkage <- function(dataOfRNA,dataOfATAC,geneset,rho=0.3,p=0.01){  #该函数目前遇到基因集全部来自同一染色体时会报错
 
 
   # 创建一个空的结果数据框
@@ -26,7 +26,6 @@ linkage <- function(dataOfRNA,dataOfATAC,geneset,rho=0.3,p=0.1){  #该函数目�
   # 对于每个基因进行操作
   for (i in seq_along(geneset)) {
     gene <- geneset[i]
-    # print(gene)
     # 找到该基因在RNA数据框中的行数
     gene_row <- match(gene, dataOfRNA$gene)
     # print(gene_row)
@@ -52,9 +51,13 @@ linkage <- function(dataOfRNA,dataOfATAC,geneset,rho=0.3,p=0.1){  #该函数目�
     }
   }
 
+  #计算相关性系数
   cor_p <- apply(result, 1, my_cor_test) %>% t()
-  loc_cor <- (abs(cor_p[,1]) > rho & cor_p[,2] < p) %>% {cbind(result[.,],cor_p[.,])} %>% as.data.frame()
+  #根据阈值过滤
+  loc_cor <- (abs(cor_p[,1]) => rho & cor_p[,2] <= p) %>% {cbind(result[.,],cor_p[.,])} %>% as.data.frame()
+  #添加基因和peak的位置信息
   loc_cor <- cbind(RNA[loc_cor[,1],2],ATAC[loc_cor[,2],1:3],loc_cor)
+  #修改列名
   colnames(loc_cor) <- c("gene", "chrom", "chromStart",  "chromEnd" ,"idx_gene","idx_peak","rho","p_value")
   loc_cor <<- loc_cor
 
